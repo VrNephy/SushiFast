@@ -72,7 +72,7 @@ Visual studio 1.62.2
 
 <h1>Requêtes</h1>
 
-![img](https://media.discordapp.net/attachments/901086910083108927/917431932462170213/EnormePenisOversize.PNG)**
+![img](https://media.discordapp.net/attachments/901086910083108927/917431932462170213/EnormePenisOversize.PNG)
 
 <h1>Structure JSON</h1>
 
