@@ -2,7 +2,7 @@
 
  
 
-SushiFast est une mission qui rassemble plusieurs TP vu en classe. Ce projet comprend deux parties, la première est à rendre pour le 10 décembre et la seconde partie le 18 février.
+SushiFast est une application web qui permet à l'utilisateur de passer commande. Ce projet comprend deux parties, la première est à rendre pour le 10 décembre et la seconde partie le 18 février.
 
  
 
