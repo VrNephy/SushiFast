@@ -24,7 +24,7 @@ Angular 13.0.1
 
  
 
-**Lien GitHub**
+<h1>Lien GitHub</h1>
 
  
 
@@ -32,13 +32,13 @@ https://github.com/VrNephy/SushiFast
 
  
 
-**Lien Projet**
+<h1>Lien Projet</h1>
 
 https://slam-vinci-melun.github.io/sio22/phase2/SP2-Angular-2021_22.pdf
 
  
 
-**Versions utilisées**
+<h1>Versions utilisées</h1>
 
  
 
@@ -54,13 +54,13 @@ Visual studio 1.62.2
 
  
 
-**Diagramme de cas d’utilisation**
+<h1>Diagramme de cas d’utilisation</h1>
 
  
 
 ![img](https://media.discordapp.net/attachments/901086910083108927/917448206001008680/unknown.png)
 
-**Diagramme des trois tiers**
+<h1>Diagramme des trois tiers</h1>
 
  
 
@@ -70,11 +70,11 @@ Visual studio 1.62.2
 
  
 
-**Requêtes**
+<h1>Requêtes</h1>
 
-**![img](https://media.discordapp.net/attachments/901086910083108927/917431932462170213/EnormePenisOversize.PNG)**
+![img](https://media.discordapp.net/attachments/901086910083108927/917431932462170213/EnormePenisOversize.PNG)**
 
-**Structure JSON**
+<h1>Structure JSON</h1>
 
 ![Une image contenant texte  Description générée automatiquement](https://media.discordapp.net/attachments/901086910083108927/917693407999188992/unknown.png)
 
@@ -82,7 +82,7 @@ Visual studio 1.62.2
 
  
 
-**RGPD**
+<h1>RGPD</h1>
 
  
 
@@ -96,7 +96,7 @@ Visual studio 1.62.2
 
  
 
-**Mise en place/ Commandes**
+<h1>Mise en place/ Commandes</h1>
 
  
 
