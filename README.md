@@ -21,7 +21,16 @@ Etroite collaboration avec l’équipe Brancodeurs 2 composé de Yannick et Brya
 <h1>Outils</h1>
 
 Angular 13.0.1
+ 
+Système d’exploitation : Windows 10
 
+Angular 13.0.1
+
+Visual studio 1.62.2
+
+NodeJS v16.13.0
+
+MongoDB v5.0.4
  
 
 <h1>Lien GitHub</h1>
@@ -35,22 +44,6 @@ https://github.com/VrNephy/SushiFast
 <h1>Lien Projet</h1>
 
 https://slam-vinci-melun.github.io/sio22/phase2/SP2-Angular-2021_22.pdf
-
- 
-
-<h1>Versions utilisées</h1>
-
- 
-
-Système d’exploitation : Windows 10
-
- 
-
-Angular 13.0.1
-
- 
-
-Visual studio 1.62.2
 
  
 
