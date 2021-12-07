@@ -1,4 +1,4 @@
-<h1>SushiFast</h1>
+<h1 style={ text-align: center;}>SushiFast</h1>
 
  
 
@@ -10,7 +10,7 @@ C’est un projet de deuxième année de BTS SIO SLAM donné par Monsieur Chamil
 
  
 
-**Groupe**
+<h1>Groupe</h1>
 
 Brancodeurs 1 : Alexandre Alleaume et Lucas Pisano
 
@@ -18,7 +18,7 @@ Etroite collaboration avec l’équipe Brancodeurs 2 composé de Yannick et Brya
 
  
 
-**Outils** 
+<h1>Outils</h1>
 
 Angular 13.0.1
 
