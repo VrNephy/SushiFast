@@ -70,7 +70,7 @@ Visual studio 1.62.2
 
  
 
-<h1>Requêtes pour tous les pateaux</h1>
+<h1>Requête pour tous les pateaux</h1>
 
 ![img](https://media.discordapp.net/attachments/901086910083108927/917431932462170213/EnormePenisOversize.PNG)
 
