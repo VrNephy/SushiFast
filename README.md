@@ -60,17 +60,17 @@ Visual studio 1.62.2
 
 ![img](https://media.discordapp.net/attachments/901086910083108927/917448206001008680/unknown.png)
 
-<h1>Diagramme des trois tiers</h1>
+<h1>Diagramme séquentiel : passer une commande</h1>
 
  
 
-![img](https://media.discordapp.net/attachments/901086910083108927/917433191554486292/unknown.png)
+![img](https://media.discordapp.net/attachments/901086910083108927/917701431325257748/image.png)
 
  
 
  
 
-<h1>Requêtes</h1>
+<h1>Requêtes pour tous les pateaux</h1>
 
 ![img](https://media.discordapp.net/attachments/901086910083108927/917431932462170213/EnormePenisOversize.PNG)
 
