@@ -14,7 +14,7 @@ C’est un projet de deuxième année de BTS SIO SLAM donné par Monsieur Chamil
 
 Brancodeurs 1 : Alexandre Alleaume et Lucas Pisano
 
-Etroite collaboration avec l’équipe Brancodeurs 2 composé de Yannick et Bryan.
+Etroite collaboration avec l’équipe Brancodeurs 2 composé de Yannick Midey et Bryan Guillot.
 
  
 
