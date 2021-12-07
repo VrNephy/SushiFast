@@ -63,7 +63,7 @@ https://slam-vinci-melun.github.io/sio22/phase2/SP2-Angular-2021_22.pdf
 
  
 
-<h1>Requête pour tous les pateaux</h1>
+<h1>Requête pour tous les pLateaux</h1>
 
 ![img](https://media.discordapp.net/attachments/901086910083108927/917431932462170213/EnormePenisOversize.PNG)
 
