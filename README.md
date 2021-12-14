@@ -11,7 +11,7 @@ C’est un projet de deuxième année de BTS SIO SLAM donné par Monsieur Chamil
 
  
 
-<h1>Groupe</h1>
+<h1>Groupe https://cdn.discordapp.com/attachments/917717231801098260/920266871423533106/1.png</h1>
 
 Brancodeurs 1 : Alexandre Alleaume et Lucas Pisano
 
