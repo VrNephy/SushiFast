@@ -31,7 +31,7 @@ Visual studio 1.62.2
 
 NodeJS v16.13.0
 
-MongoDB v5.0.4 ![img](https://cdn.discordapp.com/attachments/415449138747146250/920263688206827540/f68c84_cdf61a57be664d74b1402d20aa3d12d0_mv2.gif)
+MongoDB v5.0.4                               ![img](https://cdn.discordapp.com/attachments/415449138747146250/920263688206827540/f68c84_cdf61a57be664d74b1402d20aa3d12d0_mv2.gif)
  
 
 <h1>Lien GitHub</h1>
