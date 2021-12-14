@@ -1,4 +1,4 @@
-<h1 style={ text-align: center;}>SushiFast</h1>
+![img](https://cdn.discordapp.com/attachments/751070178472624208/920257125660373042/301551320204211.png)<h1 style={ text-align: center;}>SushiFast</h1>![img](https://cdn.discordapp.com/attachments/751070178472624208/917757760018452530/01_relax_dribble.gif)
 
  
 
