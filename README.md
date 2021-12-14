@@ -10,7 +10,7 @@ SushiFast est une application web qui permet à l'utilisateur de passer commande
 C’est un projet de deuxième année de BTS SIO SLAM donné par Monsieur Chamillard et Monsieur Capuozzo.
 
  
-![img](![image](https://user-images.githubusercontent.com/77196492/146001011-f60909c0-0725-4270-a285-be744bb1bc07.png)
+![img](https://user-images.githubusercontent.com/77196492/146001011-f60909c0-0725-4270-a285-be744bb1bc07.png)
 )
 <h1>Groupe</h1>  
 
