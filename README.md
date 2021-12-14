@@ -1,4 +1,4 @@
-![img](https://cdn.discordapp.com/attachments/751070178472624208/917757760018452530/01_relax_dribble.gif) ![img](https://cdn.discordapp.com/attachments/917717231801098260/920265011371315260/sushifast-logo-github.png)
+![img](https://cdn.discordapp.com/attachments/751070178472624208/917757760018452530/01_relax_dribble.gif) ![img](https://cdn.discordapp.com/attachments/917717231801098260/920265411877011546/sushifast-logo-github.png)
 <h1 style={ text-align: center;}>SushiFast</h1>
 
  
