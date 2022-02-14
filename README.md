@@ -81,7 +81,7 @@ https://slam-vinci-melun.github.io/sio22/phase2/SP2-Angular-2021_22.pdf
 
  
 
-![Une image contenant texte  Description générée automatiquement](https://cdn.discordapp.com/attachments/751070178472624208/920245300575219772/unknown.png)
+![Une img](https://cdn.discordapp.com/attachments/751070178472624208/920245300575219772/unknown.png)
 
  
 
