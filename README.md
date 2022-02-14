@@ -119,7 +119,7 @@ L'opérateur arrive d'abord sur la page d'accueil du site, le "home.component". 
 Si l'opérateur veut prendre commande, il peut cliquer sur le bouton "Menu" du header, ce qui le redirigera sur une page présentant les différents plateaux qui sont proposés. L'opérateur peut cliquer sur "read more" afin d'en savoir plus sur chaque plateau. En effet, en cliquant sur "read more" un modal apparaît et donne la composition du plateau. Il y a également un bouton fermer ainsi qu'un bouton pour ajouter le plateau au panier. Le panier est à gauche de la page, ce qui permet de voir en temps réel le total de la commande et de facilement supprimer un plateau en trop par exemple.
 voici a quoi ressemble le html permettant d'afficher les différents plateaux
 ![img](https://media.discordapp.net/attachments/415449138747146250/940899416431280148/unknown.png?width=1202&height=596)
-Ici, a l'aide d'une boucle ngFor, on affiche les "box" avec une image, un nom, le nombre de pièces ainsi que son prix. Le boutton "Readmode" fait appel a la fonction "affModal()" ce qui comme son nom l'indique affiche le modal propre au plateau sélectionné. Enfin un autre bouton permet d'ajouter le plateau au panier.
+Ici, a l'aide d'une boucle ngFor, on affiche les "box" avec une image, un nom, le nombre de pièces ainsi que son prix. Le boutton "Readmode" fait appel à la fonction "affModal()" ce qui comme son nom l'indique affiche le modal propre au plateau sélectionné. Enfin un autre bouton permet d'ajouter le plateau au panier.
 
 Le modal du plateau "Amateur Mix" par exemple resemble a ceci:
 ![img](https://media.discordapp.net/attachments/415449138747146250/940904037748981801/unknown.png)
@@ -128,7 +128,7 @@ Concernant le code du modal, le voici.
 
 ![img](https://media.discordapp.net/attachments/415449138747146250/940904868124721172/unknown.png)
 
-Enfin concernant le panier affiché sur la gauche, a l'aide d'une boucle ngFor, on affiche l'image, le nom et le prix des plateaux ajoutés. Le prix total est par la suite calculé et affiché. Un bouton supprimer apparaît pour chaque plateau et le bouton payer tout en bas afin de finaliser la commande. Une fois finalisée, la commande est ajoutée a l'historique des commandes.
+Enfin concernant le panier affiché sur la gauche, a l'aide d'une boucle ngFor, on affiche l'image, le nom et le prix des plateaux ajoutés. Le prix total est par la suite calculé et affiché. Un bouton supprimer apparaît pour chaque plateau et le bouton payer tout en bas afin de finaliser la commande. Une fois finalisée, la commande est ajoutée à l'historique des commandes.
 ![img](https://media.discordapp.net/attachments/415449138747146250/940905260866752572/unknown.png)
 
 Maintenant dans "historique-commande.component". Ce component a pour but de répertorier les commandes effectuées par l'opérateur. En effet, une fois la commande passée, l'opérateur peut consulter l'historique qui affiche l'ID, la date, le prix total ainsi que le statut (si oui ou non la commande fût bien payée).
