@@ -326,7 +326,7 @@ Enfin, voici la page RGPD mais cette fois en ligne comme demandé.
 
 ![img](https://cdn.discordapp.com/attachments/901086910083108927/943077263283470356/Transform.PNG)
 
-<h3>Test Réponse API</h3>
+<h3>Réponses des tests unitaires </h3>
 
 ![img](https://cdn.discordapp.com/attachments/901086910083108927/944231052841476126/unknown.png)
 
