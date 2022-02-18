@@ -115,13 +115,7 @@ Il y a donc le composant :boxs, footer, header, home, panier et rgpd.
 
 Nous allons suivre une structure simple. Je vais d'abord vous présenter la vue html puis dans un second temps le backend (typescript lié a la vue en question). Le typescript contient des commentaires pour plus d'explications. Il est vivement recommandé de les lire.
 
-L'opérateur arrive d'abord sur la page d'accueil du site, le "home.component". Il n'y à pas grand chose sur cette page mis à part le header qui permet d'accéder aux autres pages, le footer qui permet d'accéder au RGPD ainsi qu'une bannière avec un slogan.
-![img](https://media.discordapp.net/attachments/415449138747146250/943086884714848296/uihome.PNG?width=1251&height=671)
-
-Si l'opérateur veut prendre commande, il peut cliquer sur le bouton "Menu" du header, ce qui le redirigera sur une page présentant les différents plateaux qui sont proposés. L'opérateur peut cliquer sur "read more" afin d'en savoir plus sur chaque plateau. En effet, en cliquant sur "read more" un modal apparaît et donne la composition du plateau. Il y a également un bouton fermer ainsi qu'un bouton pour ajouter le plateau au panier. Le panier est à gauche de la page, ce qui permet de voir en temps réel le total de la commande et de facilement supprimer un plateau en trop par exemple.
-voici a quoi ressemble le html permettant d'afficher les différents plateaux
-
-
+L'application est liée a une api contenant les "plateaux" ou "boxes".
 
 Lien API
 ```TypeScript
@@ -181,6 +175,15 @@ export class CrudService {
   }
 ```
 
+L'opérateur arrive d'abord sur la page d'accueil du site, le "home.component". Il n'y à pas grand chose sur cette page mis à part le header qui permet d'accéder aux autres pages, le footer qui permet d'accéder au RGPD ainsi qu'une bannière avec un slogan.
+![img](https://media.discordapp.net/attachments/415449138747146250/943086884714848296/uihome.PNG)
+
+Si l'opérateur veut prendre commande, il peut cliquer sur le bouton "Menu" du header, ce qui le redirigera sur une page présentant les différents plateaux qui sont proposés. L'opérateur peut cliquer sur "read more" afin d'en savoir plus sur chaque plateau. En effet, en cliquant sur "read more" un modal apparaît et donne la composition du plateau. Il y a également un bouton fermer ainsi qu'un bouton pour ajouter le plateau au panier. Le panier est à gauche de la page, ce qui permet de voir en temps réel le total de la commande et de facilement supprimer un plateau en trop par exemple.
+voici a quoi ressemble le html permettant d'afficher les différents plateaux
+
+
+
+
 
 
 concernant l'affichage des boxes, on utilise la fonction fetchbox qui ressemble a ceci:
@@ -213,7 +216,7 @@ Voici a quoi ressemble la fonction permettant d'afficher le modal pour chaque bo
 
 ```
 par exemple, le modal du plateau "Amateur Mix"resemble à ceci:
-![img](https://media.discordapp.net/attachments/415449138747146250/943087401255972864/modalui.PNG?width=1245&height=670)
+![img](https://media.discordapp.net/attachments/415449138747146250/943087401255972864/modalui.PNG)
 
 Concernant le code html du modal, le voici.
 
