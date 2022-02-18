@@ -204,7 +204,7 @@ concernant l'affichage des boxes, on utilise la fonction fetchbox qui ressemble 
 ```
 
 
-Le modal du plateau "Amateur Mix"resemble à ceci:
+Le modal du plateau "Amateur Mix"resemble à ceci. On affiche L'image du menu en question, son prix, sa composition, ses saveurs, un bouton pour ajouter le menu en question en panier et enfin, un bouton pour fermer le modal et revenir au autres menus.
 ![img](https://media.discordapp.net/attachments/415449138747146250/943087401255972864/modalui.PNG)
 
 Voici a quoi ressemble la fonction permettant d'afficher le modal pour chaque box.
@@ -220,12 +220,8 @@ Voici a quoi ressemble la fonction permettant d'afficher le modal pour chaque bo
   }
 
 ```
-Concernant le code html du modal, le voici.
-
-![img](https://cdn.discordapp.com/attachments/415449138747146250/943088123255083018/modalcode.PNG)
 
 Enfin concernant le panier affiché sur la gauche, a l'aide d'une boucle ngFor, on affiche l'image, le nom et le prix des plateaux ajoutés. Le prix total est par la suite calculé et affiché. Un bouton supprimer apparaît pour chaque plateau et le bouton payer tout en bas afin de finaliser la commande. Une fois finalisée, la commande est ajoutée à l'historique des commandes.
-![img](https://cdn.discordapp.com/attachments/415449138747146250/943088365052518410/paniercode.PNG)
 
 Les fonctions utilisées pour le panier sont 
 
@@ -366,4 +362,3 @@ Un client peut accéder à la borne/l'application qui est normalement uniquement
 En tant qu'opérateur malveillant, un client créer sa propre commande et ne paie pas.
 
 En tant que développeur, je met un place un système d'identification avec un mot de passe, code ou badge qui dévérouille la borde ou l'application est acessible.
-
