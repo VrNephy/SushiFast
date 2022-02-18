@@ -186,6 +186,12 @@ voici a quoi ressemble le html permettant d'afficher les différents plateaux
 
 
 
+
+Ici, a l'aide d'une boucle ngFor, on affiche les "box" avec une image, un nom, le nombre de pièces ainsi que son prix. Le boutton "Readmore" fait appel à la fonction "affModal()" ce qui comme son nom l'indique affiche le modal propre au plateau sélectionné.
+
+![img](https://cdn.discordapp.com/attachments/415449138747146250/944252057232228352/unknown.png)
+
+
 concernant l'affichage des boxes, on utilise la fonction fetchbox qui ressemble a ceci:
 
 ```TypeScript
@@ -196,11 +202,6 @@ concernant l'affichage des boxes, on utilise la fonction fetchbox qui ressemble 
     })
   }
 ```
-
-Ici, a l'aide d'une boucle ngFor, on affiche les "box" avec une image, un nom, le nombre de pièces ainsi que son prix. Le boutton "Readmore" fait appel à la fonction "affModal()" ce qui comme son nom l'indique affiche le modal propre au plateau sélectionné.
-
-![img](https://cdn.discordapp.com/attachments/415449138747146250/944252057232228352/unknown.png)
-
 
 Voici a quoi ressemble la fonction permettant d'afficher le modal pour chaque box.
 ```TypeScript
