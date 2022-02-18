@@ -196,7 +196,7 @@ concernant l'affichage des boxes, on utilise la fonction fetchbox qui ressemble 
 
 Ici, a l'aide d'une boucle ngFor, on affiche les "box" avec une image, un nom, le nombre de pièces ainsi que son prix. Le boutton "Readmore" fait appel à la fonction "affModal()" ce qui comme son nom l'indique affiche le modal propre au plateau sélectionné.
 
-![img](https://media.discordapp.net/attachments/415449138747146250/943086884433821706/uibox.PNG?width=1247&height=670)
+![img](https://cdn.discordapp.com/attachments/415449138747146250/944252057232228352/unknown.png)
 
 
 Voici a quoi ressemble la fonction permettant d'afficher le modal pour chaque box.
