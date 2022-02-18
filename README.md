@@ -113,28 +113,337 @@ Il y a donc le composant :boxs, footer, header, home, panier et rgpd.
 
 <h1>Développement</h1>
 
+Nous allons suivre une structure simple. Je vais d'abord vous présenter la vue html puis dans un second temps le backend (typescript lié a la vue en question). Le typescript contient des commentaires pour plus d'explications. Il est vivement recommandé de les lire.
+
 L'opérateur arrive d'abord sur la page d'accueil du site, le "home.component". Il n'y à pas grand chose sur cette page mis à part le header qui permet d'accéder aux autres pages, le footer qui permet d'accéder au RGPD ainsi qu'une bannière avec un slogan.
-![img](https://media.discordapp.net/attachments/415449138747146250/940899196419059722/unknown.png)
+![img](https://media.discordapp.net/attachments/415449138747146250/943086884714848296/uihome.PNG?width=1251&height=671)
 
 Si l'opérateur veut prendre commande, il peut cliquer sur le bouton "Menu" du header, ce qui le redirigera sur une page présentant les différents plateaux qui sont proposés. L'opérateur peut cliquer sur "read more" afin d'en savoir plus sur chaque plateau. En effet, en cliquant sur "read more" un modal apparaît et donne la composition du plateau. Il y a également un bouton fermer ainsi qu'un bouton pour ajouter le plateau au panier. Le panier est à gauche de la page, ce qui permet de voir en temps réel le total de la commande et de facilement supprimer un plateau en trop par exemple.
 voici a quoi ressemble le html permettant d'afficher les différents plateaux
-![img](https://media.discordapp.net/attachments/415449138747146250/940899416431280148/unknown.png?width=1202&height=596)
+![img](https://media.discordapp.net/attachments/415449138747146250/943086884433821706/uibox.PNG?width=1247&height=670)
 Ici, a l'aide d'une boucle ngFor, on affiche les "box" avec une image, un nom, le nombre de pièces ainsi que son prix. Le boutton "Readmode" fait appel à la fonction "affModal()" ce qui comme son nom l'indique affiche le modal propre au plateau sélectionné. Enfin un autre bouton permet d'ajouter le plateau au panier.
 
-Le modal du plateau "Amateur Mix" par exemple resemble a ceci:
-![img](https://media.discordapp.net/attachments/415449138747146250/940904037748981801/unknown.png)
+Le typescript de ce composant est utilisé pour l'affichage des différents plateaux, le panier, l'ajout dans l'historique ainsi que les modals.
+```TypeScript
+import { Component, OnInit, Input } from '@angular/core';
+import { CrudService } from "src/app/services/crud.service";
+@Component({
+  selector: 'app-boxs',
+  templateUrl: './boxs.component.html',
+  styleUrls: ['./boxs.component.css']
+})
+
+export class BoxsComponent implements OnInit {
+  //variable qui stocke tous les menus
+  Boxes: any = [];
+  //variable qui stocke la commande
+  box: any = [];
+  //variable qui stocke le menu dont on veut le détails
+  boxmodal: any = [];
+  //variable pour savoir si on affiche ou non le détails d'un menu  
+  showModal: boolean = false;
+  //prix total de la commande en cours
+  grandTotal: number = 0;
+
+  //on récupère le crudService
+  constructor(public crudService: CrudService) { }
+  //a l'initialisation on récupère toutes les menu avec fetchBoxes
+  ngOnInit(): void {
+    this.fetchBoxes();
+    //parcours la commande et on récupère les menus présent dans la commande
+    for (var i = 0; i < this.box.length; i++) {
+      this.fetchBox(this.box[i].id);
+    }
+  }
+
+
+  //récupère un menu en fonction de son  id et l'ajoute a notre commande
+  fetchBox(id: number) {
+
+
+    return this.crudService.getBox(id.toString())
+      .subscribe(res => {
+        if (res != null) {
+          this.box = this.box.concat(res);
+
+        }
+      })
+  }
+
+  //récupère tous les menus depuis le crudService
+  fetchBoxes() {
+    return this.crudService.getBoxes().subscribe((data: {}) => {
+      this.Boxes = data;
+    })
+  }
+  //fonction d'affichage de la fenêtre de détails
+  affModal(i: number) {
+    if (this.showModal) {
+      this.showModal = false;
+    } else {
+      // console.log("Modal indice :" + i);    
+      //console.log("Modal nom plateau :" + this.Boxes[i].nom);
+      this.boxmodal = this.Boxes[i];
+      // console.log(this.box)
+      this.showModal = true;
+    }
+  }
+
+  //ajout de la commande a l'historique
+  addToHistorique() {
+    if (this.grandTotal != 0) {
+      var date = new Date();
+      const formatDate = (current_datetime: any) => {
+        let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + "h" + current_datetime.getMinutes() + "m" + current_datetime.getSeconds() + "s";
+        return formatted_date
+      }
+      this.crudService.histoData.push([this.crudService.getTotalPrice(), formatDate(date), this.box]);
+      //   console.log(this.crudService.histoData);
+      this.box = []
+      this.crudService.panierItemList = []
+      this.grandTotal = 0
+      let tabItems = JSON.stringify(this.crudService.histoData)
+      localStorage.setItem('Historique', tabItems);
+      alert("Payement effectué avec succès, bonne appétit 🍽")
+    } else {
+      alert("Veuillez choissir un plat avant de commander !!! ")
+    }
+  }
+  //ajout d'un menu a la commande
+  addtocart(boxe: any) {
+    this.crudService.addtoCart(boxe);
+    this.box = []
+    for (var i = 0; i < this.crudService.getpanierItemList().length; i++) {
+      this.fetchBox(this.crudService.getpanierItemList()[i].id);
+    }
+    this.grandTotal = this.crudService.getTotalPrice();
+  }
+
+  //retirer un menu de la commande
+  removeitem(boxe: any) {
+    this.crudService.removeCartItem(boxe);
+    this.box = []
+    for (var i = 0; i < this.crudService.getpanierItemList().length; i++) {
+      this.fetchBox(this.crudService.getpanierItemList()[i].id);
+    }
+
+    this.grandTotal = this.crudService.getTotalPrice(); console.log("prix total = " + this.grandTotal)
+  }
+  emptycart() {
+    this.crudService.removeAllCart();
+  }
+}
+
+
+
+```
+Le modal du plateau "Amateur Mix"resemble à ceci:
+![img](https://media.discordapp.net/attachments/415449138747146250/943087401255972864/modalui.PNG?width=1245&height=670)
 
 Concernant le code du modal, le voici.
 
-![img](https://media.discordapp.net/attachments/415449138747146250/940904868124721172/unknown.png)
+![img](https://cdn.discordapp.com/attachments/415449138747146250/943088123255083018/modalcode.PNG)
 
 Enfin concernant le panier affiché sur la gauche, a l'aide d'une boucle ngFor, on affiche l'image, le nom et le prix des plateaux ajoutés. Le prix total est par la suite calculé et affiché. Un bouton supprimer apparaît pour chaque plateau et le bouton payer tout en bas afin de finaliser la commande. Une fois finalisée, la commande est ajoutée à l'historique des commandes.
-![img](https://media.discordapp.net/attachments/415449138747146250/940905260866752572/unknown.png)
+![img](https://cdn.discordapp.com/attachments/415449138747146250/943088365052518410/paniercode.PNG)
 
 Maintenant dans "historique-commande.component". Ce component a pour but de répertorier les commandes effectuées par l'opérateur. En effet, une fois la commande passée, l'opérateur peut consulter l'historique qui affiche l'ID, la date, le prix total ainsi que le statut (si oui ou non la commande fût bien payée).
 
 Voici a quoi ressemble le code concernant l'historique.
-![img](https://media.discordapp.net/attachments/415449138747146250/940907667998801960/unknown.png)
+![img](https://media.discordapp.net/attachments/415449138747146250/943086884073132062/historyui.PNG?width=1381&height=670)
+```TypeScript
+import { Component, OnInit } from '@angular/core';
+import { CrudService } from "src/app/services/crud.service";
 
+@Component({
+  selector: 'app-historique-commande',
+  templateUrl: './historique-commande.component.html',
+  styleUrls: ['./historique-commande.component.css']
+})
+export class HistoriqueCommandeComponent implements OnInit {
+  //variablec qui stocke l'historique
+  histo: any = [];
+  //variable qui stocke la date
+  now: string = ""
+  constructor(public crudService: CrudService) { }
+
+  ngOnInit(): void {
+    //on récupère l'historique (prix des commandes ainsi que leurs dates de payement) depuis le localstorage
+    this.histo = JSON.parse(localStorage.getItem('Historique') || '[]').map((hist: any, index: Number) => {
+      hist[2] = hist[2].reduce((prev: any, current: any, count: Number) => count ? prev + current.prix + " € -"
+       + current.nom : current.prix + " € - " + current.nom, ""); return hist
+    });
+
+  }
+  deleteHistorique() {
+    if (confirm("Etes-vous sur de vouloir supprimer l'historique ?")) {
+      localStorage.removeItem('Historique')
+      location.reload();
+    }
+  }
+
+}
+
+
+```
+Les fichiers Typescript de la vue affichant les plateaux, le pannier, le modal ainsi que l'historique font appel à "crud.service.ts"
+```Typescript
+import { Injectable } from '@angular/core';
+import { catchError } from 'rxjs/operators';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+
+export interface boxes {
+  id: number;
+  name: string;
+  pieces: number;
+  composition: [
+    {
+      nom: string,
+      quantite: number,
+    }
+  ];
+  saveurs: [];
+  prix: number;
+  image: string
+}
+
+
+const urlrest = 'http://localhost:3000';
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class CrudService {
+  constructor(private http: HttpClient) { }
+
+  //contient tout ce que le client ajoute a son panier de la commande
+  public panierItemList: any = [];
+  public boxList = new BehaviorSubject<any>([]);
+
+  //historique des commandes, a chaque commande passer on ajoute sont prix dans l'historique
+  histoData: any = JSON.parse(localStorage.getItem('Historique') || '[]')
+
+  bol_to_remove_one = false
+
+  httpHeader = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
+  //getteurs pour avoir tous les menus 
+  getBoxes(): Observable<any> {
+    return this.http.get<boxes>(urlrest + '/boxes').pipe(
+      catchError(this.handleError)
+    );
+  }
+  //getteur pour avoir un menu menu en particulier en fonction de son id
+  getBox(id: string): Observable<any> {
+    return this.http.get<boxes>(urlrest + '/boxes/' + id).pipe(
+      catchError(this.handleError)
+    );
+  }
+  //getteur pour avoir le panier
+  getpanierItemList() {
+    return this.panierItemList
+  }
+  //ajout au menu
+  addtoCart(box: any) {
+    this.panierItemList.push(box);
+    this.boxList.next(this.panierItemList);
+  }
+  //getteur pour avoir le prix total de la commande 
+  getTotalPrice(): number {
+    let grandTotal = 0;
+    this.panierItemList.map((a: any) => {
+      grandTotal += a.prix;
+    })
+    return Math.round(grandTotal * 100) / 100;
+  }
+  //fonction pour retirer un menu de la commande en cours
+  removeCartItem(boxe: any) {
+    this.bol_to_remove_one = false
+    this.panierItemList.map((a: any, index: any) => {
+      if (boxe.id === a.id && this.bol_to_remove_one == false) {
+        this.panierItemList.splice(index, 1); this.bol_to_remove_one = true
+      }
+    })
+
+  }
+
+  removeAllCart() {
+    this.panierItemList = []
+    this.boxList.next(this.panierItemList);
+  }
+
+  private handleError(error: HttpErrorResponse): any {
+    if (error.error instanceof ErrorEvent) {
+      console.error('An error occurred:', error.error.message);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+    return throwError(() => 'Something bad happened; please try again later.');
+  }
+}
+```
 enfin, voici la page RGPD mais cette fois en ligne comme demandé.
-![img](https://media.discordapp.net/attachments/415449138747146250/940899808804212746/unknown.png)
+![img](https://media.discordapp.net/attachments/415449138747146250/943086883775348757/dataui.PNG?width=1247&height=670)
+
+<h1>Tests unitaires</h1>
+
+<h3>Show modal</h3>
+
+![img](https://cdn.discordapp.com/attachments/901086910083108927/943067993053736980/TestUnitaireShowModal.PNG)
+
+<h3>Test show modal</h3>
+
+![img](https://cdn.discordapp.com/attachments/901086910083108927/943068046921183232/ShowModal.PNG)
+
+<h3>Transform (arrondi)</h3>
+
+![img](https://cdn.discordapp.com/attachments/901086910083108927/943077263283470356/Transform.PNG)
+
+<h3>Test Réponse API</h3>
+
+![img](https://cdn.discordapp.com/attachments/901086910083108927/944231052841476126/unknown.png)
+
+
+
+
+
+
+
+
+
+
+<h1>Evil-User Story</h1>
+
+<h2>opérateur malveillant</h2>
+Lors d'un achat, l'opérateur de fait pas tout payer. Ce qui résulte en une perte de revenu pour l'entreprise.
+
+En tant qu'opérateur malveillant, un client achète 1 box de sushis et je lui en donne 2.
+
+En tant que développeur, je peut mettre en place un système d'identification. Ainsi chaque commande est retrouveable et peut etre utiliser pour remonter jusqu'a l'opérateur malveillant.
+
+identification d'employé (Code d'identification d'employée) dans le localstorage.
+
+<h2>opérateur malveillant</h2>
+A l'inverse, lors d'un achat, l'opérateur peut faire payer plus que nécessaire. Ce qui résulte en un grain d'argent pour l'entreprise.
+
+En tant qu'opérateur malveillant, un client achète 1 box de sushi mais je fais payer le prix de 2.
+
+En tant que développeur, je peut mettre en place un système d'identification. Ainsi chaque commande est retrouveable et peut etre utiliser pour remonter jusqu'a l'opérateur malveillant.
+
+identification d'employé (Code d'identification d'employée) dans le localstorage.
+
+<h2>Opérateur Client</h2>
+
+Un client peut accéder à la borne/l'application qui est normalement uniquement accessible par l'opérateur.
+
+En tant qu'opérateur malveillant, un client créer sa propre commande et ne paie pas.
+
+En tant que développeur, je met un place un système d'identification avec un mot de passe, code ou badge qui dévérouille la borde ou l'application est acessible.
+
