@@ -410,15 +410,6 @@ enfin, voici la page RGPD mais cette fois en ligne comme demandé.
 
 ![img](https://cdn.discordapp.com/attachments/901086910083108927/944231052841476126/unknown.png)
 
-
-
-
-
-
-
-
-
-
 <h1>Evil-User Story</h1>
 
 <h2>opérateur malveillant</h2>
@@ -447,3 +438,7 @@ En tant qu'opérateur malveillant, un client créer sa propre commande et ne pai
 
 En tant que développeur, je met un place un système d'identification avec un mot de passe, code ou badge qui dévérouille la borde ou l'application est acessible.
 
+<h1>Installation</h1>
+
+Pour installer le projet, il faut importer le projet avec git clone et l'adresse du proget.
+Une fois le projet ouvert, effectuez la commande "npm install".
