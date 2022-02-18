@@ -203,6 +203,10 @@ concernant l'affichage des boxes, on utilise la fonction fetchbox qui ressemble 
   }
 ```
 
+
+Le modal du plateau "Amateur Mix"resemble à ceci:
+![img](https://media.discordapp.net/attachments/415449138747146250/943087401255972864/modalui.PNG)
+
 Voici a quoi ressemble la fonction permettant d'afficher le modal pour chaque box.
 ```TypeScript
   //fonction d'affichage de la fenêtre de détails
@@ -216,9 +220,6 @@ Voici a quoi ressemble la fonction permettant d'afficher le modal pour chaque bo
   }
 
 ```
-par exemple, le modal du plateau "Amateur Mix"resemble à ceci:
-![img](https://media.discordapp.net/attachments/415449138747146250/943087401255972864/modalui.PNG)
-
 Concernant le code html du modal, le voici.
 
 ![img](https://cdn.discordapp.com/attachments/415449138747146250/943088123255083018/modalcode.PNG)
